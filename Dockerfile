@@ -12,4 +12,4 @@ COPY wsgi.py .
 COPY config.py .
 COPY application application
 
-CMD [ "python", "app.py" ]
+CMD [ "python", "wsgi.py" ]
