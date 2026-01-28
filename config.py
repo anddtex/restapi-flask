@@ -1,4 +1,10 @@
 import os
+import mongomock
+
+
+class Config():
+    """Classe base de configuração"""
+    pass
 
 
 class DevConfig():
@@ -10,4 +16,14 @@ class DevConfig():
         'password': os.getenv('MONGODB_PASSWORD'),
         # 'port': 27017,
         # 'authentication_source': 'admin'
+    }
+
+
+class MockConfig(Config):
+    TESTING = True
+    MONGODB_SETTINGS = {
+        'db': 'users',
+        'host': 'localhost',
+        'port': 27017,
+        'mongo_client_class': mongomock.MongoClient
     }
